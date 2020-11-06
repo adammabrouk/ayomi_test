@@ -1,0 +1,61 @@
+{% extends 'user_manager/base.html' %}
+
+{% block content %}
+
+<div class="col-sm-2"></div>
+<div class="col-sm-8">
+
+  <div class="form-box">
+    <div class="form-top">
+      <div class="form-top-left">
+        <h3>User details</h3>
+          <p></p>
+      </div>
+      <div class="form-top-right">
+        <i class="fa fa-pencil"></i>
+      </div>
+      </div>
+      <div class="form-bottom">
+
+        <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3 col-lg-3 hidden-xs hidden-sm">
+                                <img class="img-circle" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" alt="User Pic">
+                            </div>
+                            <div class="col-xs-2 col-sm-2 hidden-md hidden-lg">
+                                <img class="img-circle" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50" alt="User Pic">
+                            </div>
+
+                            <div class=" col-md-9 col-lg-9 hidden-xs hidden-sm">
+                                <strong>{{user.firstname}} {{user.lastname}}</strong><br>
+                                <table class="table table-user-information">
+                                    <tbody>
+                                    <tr>
+                                        <td>Email : </td>
+                                        <td>{{user.email}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Registration Date :</td>
+                                        <td>{{user.date}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mobile : </td>
+                                        <td>{{user.phone}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Adress :</td>
+                                        <td>{{user.adress}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+      </div>
+  </div>
+
+</div>
+
+<div class="col-sm-2"></div>
+{% endblock %}
