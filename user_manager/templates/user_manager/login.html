@@ -17,7 +17,8 @@
       </div>
       </div>
       <div class="form-bottom">
-    <form role="form" action="" method="post" class="login-form">
+    <form role="form" action="/user_manager/verify_login/" method="post" class="login-form">
+      {% csrf_token %}
       <div class="form-group">
         <label class="sr-only" for="form-username">Username</label>
           <input type="text" name="form-username" placeholder="Username..." class="form-username form-control" id="form-username">
@@ -27,6 +28,17 @@
           <input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password">
         </div>
         <button type="submit" class="btn">Sign in!</button>
+        {% if flag == "1" %}
+        <div class="form-group">
+          <p>Accoutn created with success ! you can now login</p>
+        </div>
+        {% endif %}
+
+        {% if flag == "2" %}
+        <div class="form-group">
+          <p>No acccout with given credentials !</p>
+        </div>
+        {% endif %}
     </form>
   </div>
 </div>

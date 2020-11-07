@@ -50,6 +50,28 @@
                                 </table>
                             </div>
                         </div>
+
+                        <div class="row">
+
+                          <div class="col-sm-3">
+                            <form action="/user_manager/disconnect/" method="get" id="form1">
+                            <input type="hidden" id="disconnect" name="disconnect" value="1" >
+                            </form>
+                            <button type="submit" form="form1" class="btn btn-danger" value="Submit">Disconnect</button>
+                          </div>
+
+
+                          <div class="col-sm-6"></div>
+                          <div class="col-sm-3">
+                            <form action="#" method="get" id="form2">
+                            <input type="hidden" id="modify" name="modify" value="1" >
+                            </form>
+                            <button type="submit" form="form2" class="btn btn-success" value="Submit">Modify</button>
+                          </div>
+
+                        </div>
+
+
                     </div>
 
       </div>
@@ -58,4 +80,7 @@
 </div>
 
 <div class="col-sm-2"></div>
+
+
+
 {% endblock %}

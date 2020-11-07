@@ -16,7 +16,8 @@
       </div>
       </div>
       <div class="form-bottom">
-    <form role="form" action="" method="post" class="registration-form">
+    <form role="form" action="/user_manager/verify/" method="post" class="registration-form">
+      {% csrf_token %}
       <div class="form-group">
         <label class="sr-only" for="form-first-name">First name</label>
           <input type="text" name="form-first-name" placeholder="First name..." class="form-first-name form-control" id="form-first-name">
@@ -46,6 +47,11 @@
                 class="form-adress form-control" id="form-adress"></textarea>
         </div>
         <button type="submit" class="btn">Sign me up!</button>
+        {% if flag == "2" %}
+          <div class="form-group">
+            <p>Account already exists ! try with another credentials</p>
+          </div>
+        {% endif %}
     </form>
   </div>
   </div>
