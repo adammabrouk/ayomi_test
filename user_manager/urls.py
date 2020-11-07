@@ -12,5 +12,6 @@ urlpatterns = [
         path('details/', views.details),
         path('verify/', views.verify),
         path('verify_login/', views.verify_login),
-        path('disconnect/', views.disconnect)
+        path('disconnect/', views.disconnect),
+        path('post_mail/', views.post_mail, name="post_mail")
         ]

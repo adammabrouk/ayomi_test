@@ -79,6 +79,8 @@
         <script src="{% static 'user_manager/js/jquery-1.11.1.min.js' %}"></script>
         <script src="{% static 'user_manager/bootstrap/js/bootstrap.min.js' %}"></script>
         <script src="{% static 'user_manager/js/scripts.js' %}"></script>
+        {% block javascript %}
+        {% endblock javascript %}
 
         <!--[if lt IE 10]>
             <script src="assets/js/placeholder.js"></script>

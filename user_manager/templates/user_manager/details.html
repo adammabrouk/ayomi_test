@@ -32,7 +32,7 @@
                                     <tbody>
                                     <tr>
                                         <td>Email : </td>
-                                        <td>{{user.email}}</td>
+                                        <td><span id="adressMail">{{user.email}}</span></td>
                                     </tr>
                                     <tr>
                                         <td>Registration Date :</td>
@@ -63,10 +63,8 @@
 
                           <div class="col-sm-6"></div>
                           <div class="col-sm-3">
-                            <form action="#" method="get" id="form2">
-                            <input type="hidden" id="modify" name="modify" value="1" >
-                            </form>
-                            <button type="submit" form="form2" class="btn btn-success" value="Submit">Modify</button>
+
+                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" >Modify</button>
                           </div>
 
                         </div>
@@ -82,5 +80,71 @@
 <div class="col-sm-2"></div>
 
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modify email adress</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form id="change-mail-form">
+        {% csrf_token %}
+          <div class="modal-body">
+
+              <div class="row">
+                <div class="col-sm-3">
+                  <label  for="form-new-mail">New Email</label>
+                </div>
+                <div class="col-sm-9">
+                  <input type="text" name="form-new-mail" placeholder="Email ..." class="form-new-email form-control" id="form-new-mail">
+                </div>
+
+              </div>
+
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary" id="change-mail-button"  data-dismiss="modal">Save changes</button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 
 {% endblock %}
+
+{% block javascript %}
+
+<script>
+$("#change-mail-button").click(function (e) {
+    console.log("Entered trigger");
+    // preventing from page reload and default actions
+    e.preventDefault();
+    // serialize the data for sending the form data.
+    var serializedData = $('#change-mail-form').serialize();
+    // make POST ajax call
+    $.ajax({
+        type: 'POST',
+        url: "{% url 'post_mail' %}",
+        data: serializedData,
+        success: function (response) {
+
+            // Change the new mail from response.
+            console.log(response['new_mail'])
+            var new_mail = response["new_mail"];
+            $('#adressMail').text(new_mail);
+
+        },
+        error: function (response) {
+            // alert the error if any error occured
+            alert(response["responseJSON"]["error"]);
+        }
+    })
+});
+</script>
+{% endblock javascript %}
