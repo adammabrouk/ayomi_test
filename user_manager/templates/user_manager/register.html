@@ -47,9 +47,12 @@
                 class="form-adress form-control" id="form-adress"></textarea>
         </div>
         <button type="submit" class="btn">Sign me up!</button>
+
+        <a href="/user_manager/login/"><p style="text-align:center; margin-top: 5%;" >Already have an account ? Click here to Login</p></a>
+
         {% if flag == "2" %}
           <div class="form-group">
-            <p>Account already exists ! try with another credentials</p>
+            <p style = "color : red; text-align : center">Account already exists ! try with another credentials</p>
           </div>
         {% endif %}
     </form>

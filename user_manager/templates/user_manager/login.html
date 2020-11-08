@@ -28,15 +28,16 @@
           <input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password">
         </div>
         <button type="submit" class="btn">Sign in!</button>
+        <a href="/user_manager/register/"><p style="text-align:center; margin-top: 5%;" >No account ? Click here to register</p></a>
         {% if flag == "1" %}
         <div class="form-group">
-          <p>Accoutn created with success ! you can now login</p>
+          <p style = "color : green; text-align : center">Account created with success ! you can now login</p>
         </div>
         {% endif %}
 
         {% if flag == "2" %}
         <div class="form-group">
-          <p>No acccout with given credentials !</p>
+          <p style = "color : red; text-align : center">No accout with given credentials !</p>
         </div>
         {% endif %}
     </form>

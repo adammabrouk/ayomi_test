@@ -15,3 +15,5 @@ urlpatterns = [
         path('disconnect/', views.disconnect),
         path('post_mail/', views.post_mail, name="post_mail")
         ]
+
+# test Add

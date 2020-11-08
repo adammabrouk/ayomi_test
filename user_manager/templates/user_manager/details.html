@@ -123,25 +123,25 @@
 <script>
 $("#change-mail-button").click(function (e) {
     console.log("Entered trigger");
-    // preventing from page reload and default actions
+    // empêcher le rechargement des pages et les actions par défaut
     e.preventDefault();
-    // serialize the data for sending the form data.
+    // sérialiser les données pour l'envoi des données du formulaire.
     var serializedData = $('#change-mail-form').serialize();
-    // make POST ajax call
+    // Appel AJAX POST
     $.ajax({
         type: 'POST',
         url: "{% url 'post_mail' %}",
         data: serializedData,
         success: function (response) {
 
-            // Change the new mail from response.
+            // Changer le nouveau mail dans la page si succès de la réponse
             console.log(response['new_mail'])
             var new_mail = response["new_mail"];
             $('#adressMail').text(new_mail);
 
         },
         error: function (response) {
-            // alert the error if any error occured
+            // Afficher une alerte dans le cas d'une erreur
             alert(response["responseJSON"]["error"]);
         }
     })
